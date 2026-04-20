@@ -115,14 +115,14 @@ const appConfig = useAppConfig();
         display: grid;
         grid-template-columns: 1fr;
         gap: 28px;
-        padding: 34px 22px;
+        padding: 40px 24px 34px;
         color: $hero-banner-color;
 
         @include tools.media-breakpoint-up("md") {
-            grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+            grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.68fr);
             align-items: center;
             gap: 36px;
-            padding: 48px 42px;
+            padding: 56px 46px 44px;
         }
     }
 
@@ -134,17 +134,18 @@ const appConfig = useAppConfig();
 
         h1 {
             color: inherit;
-            max-width: 14ch;
-            margin-bottom: 16px;
-            line-height: 1.05;
-            font-size: clamp(2.75rem, 5vw, 5rem);
+            max-width: 10.5ch;
+            margin-bottom: 18px;
+            line-height: 0.98;
+            font-size: clamp(2.95rem, 5.4vw, 5.4rem);
+            text-wrap: balance;
         }
 
         p {
-            max-width: 40rem;
+            max-width: 34rem;
             margin-bottom: 0;
-            font-size: 1.05rem;
-            line-height: 1.75;
+            font-size: 1.02rem;
+            line-height: 1.7;
             color: rgba(255, 255, 255, 0.86);
         }
     }
@@ -190,7 +191,7 @@ const appConfig = useAppConfig();
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-top: 28px;
+        margin-top: 30px;
     }
 
     &__tags {

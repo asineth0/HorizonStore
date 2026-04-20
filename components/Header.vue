@@ -1,143 +1,141 @@
 <template>
     <div class="header" :style="{ height }">
         <div :class="classes" ref="header">
-            <nav
-                :class="{
-                    'd-flex': true,
-                    container: isSticky,
-                    'pa-3': !isSticky,
-                    'pa-0': isSticky,
-                }"
-            >
-                <div class="col d-flex align-center ga-4">
-                    <Button
-                        v-if="appConfig.mainSiteUrl"
-                        tag="a"
-                        :href="appConfig.mainSiteUrl"
-                        icon="home"
-                        variant="clear"
-                        :aria-label="$t('buttons.home')"
-                    ></Button>
+            <div class="header__shell">
+                <div class="header__backdrop" :style="backdropStyle"></div>
 
-                    <Button
-                        v-if="categories && categories.length > 3"
-                        class="d-inline-flex d-lg-none"
-                        icon="menu"
-                        @click="uiStore.toggleItem('menu-sidebar')"
-                        variant="clear"
-                        :aria-label="$t('buttons.menu')"
-                    ></Button>
-
-                    <PlayButton class="d-none d-lg-inline-flex" />
-                </div>
-                <div class="col d-flex align-center justify-center">
-                    <button
-                        class="header__brand d-none d-md-inline-flex"
-                        type="button"
-                        @click="scrollToTop"
-                    >
-                        <img
-                            class="header__logo"
-                            :src="brandLogo"
-                            :alt="$t('store_name')"
-                        />
-                        <span class="header__brand-copy">
-                            <strong>{{ appConfig.storeName }}</strong>
-                            <small>{{ appConfig.serverIp }}</small>
-                        </span>
-                    </button>
-
-                    <Button
-                        variant="clear"
-                        class="header__logo-icon d-md-none mx-auto"
-                        @click="scrollToTop"
-                        :aria-label="$t('buttons.go_to_top')"
-                    >
-                        <img
-                            :src="brandIcon"
-                            :alt="$t('store_name')"
-                            width="36"
-                        />
-                    </Button>
-                </div>
-                <div class="col d-flex justify-end align-center ga-4">
-                    <ClientOnly>
+                <nav class="header__nav">
+                    <div class="col d-flex align-center ga-4">
                         <Button
-                            class="d-none d-sm-inline-flex login-btn"
-                            variant="primary"
-                            :to="authStore.loginRoute"
-                            ref="loginButton"
-                        >
-                            <template #prepend>
-                                <Avatar :user="authStore.user" />
-                            </template>
+                            v-if="appConfig.mainSiteUrl"
+                            tag="a"
+                            :href="appConfig.mainSiteUrl"
+                            icon="home"
+                            variant="clear"
+                            :aria-label="$t('buttons.home')"
+                        ></Button>
 
-                            <template #default>
-                                <span
-                                    class="text-center"
-                                    ref="username"
-                                    :style="{ minWidth: usernameWidth }"
-                                >
-                                    {{
-                                        authStore.isAuthenticated
-                                            ? isHovered
-                                                ? $t("buttons.logout")
-                                                : authStore.user.username
-                                            : $t("buttons.login")
-                                    }}
-                                </span>
-                            </template>
+                        <Button
+                            v-if="categories && categories.length > 3"
+                            class="d-inline-flex d-lg-none"
+                            icon="menu"
+                            @click="uiStore.toggleItem('menu-sidebar')"
+                            variant="clear"
+                            :aria-label="$t('buttons.menu')"
+                        ></Button>
+
+                        <PlayButton class="d-none d-lg-inline-flex" />
+                    </div>
+                    <div class="col d-flex align-center justify-center">
+                        <button
+                            class="header__brand d-none d-md-inline-flex"
+                            type="button"
+                            @click="scrollToTop"
+                        >
+                            <img
+                                class="header__logo"
+                                :src="brandLogo"
+                                :alt="$t('store_name')"
+                            />
+                            <span class="header__brand-copy">
+                                <strong>{{ appConfig.storeName }}</strong>
+                                <small>{{ appConfig.serverIp }}</small>
+                            </span>
+                        </button>
+
+                        <Button
+                            variant="clear"
+                            class="header__logo-icon d-md-none mx-auto"
+                            @click="scrollToTop"
+                            :aria-label="$t('buttons.go_to_top')"
+                        >
+                            <img
+                                :src="brandIcon"
+                                :alt="$t('store_name')"
+                                width="36"
+                            />
                         </Button>
-                    </ClientOnly>
-                    <Button
-                        class="d-none d-sm-inline-flex"
-                        variant="success"
-                        prependIcon="cart"
-                        @click="uiStore.toggleItem('cart-sidebar')"
-                    >
-                        <ClientOnly :fallback="t('buttons.cart')">
-                            {{
-                                t(
-                                    "buttons.cart",
+                    </div>
+                    <div class="col d-flex justify-end align-center ga-4">
+                        <ClientOnly>
+                            <Button
+                                class="d-none d-sm-inline-flex login-btn"
+                                variant="primary"
+                                :to="authStore.loginRoute"
+                                ref="loginButton"
+                            >
+                                <template #prepend>
+                                    <Avatar :user="authStore.user" />
+                                </template>
+
+                                <template #default>
+                                    <span
+                                        class="text-center"
+                                        ref="username"
+                                        :style="{ minWidth: usernameWidth }"
+                                    >
+                                        {{
+                                            authStore.isAuthenticated
+                                                ? isHovered
+                                                    ? $t("buttons.logout")
+                                                    : authStore.user.username
+                                                : $t("buttons.login")
+                                        }}
+                                    </span>
+                                </template>
+                            </Button>
+                        </ClientOnly>
+                        <Button
+                            class="d-none d-sm-inline-flex"
+                            variant="success"
+                            prependIcon="cart"
+                            @click="uiStore.toggleItem('cart-sidebar')"
+                        >
+                            <ClientOnly :fallback="t('buttons.cart')">
+                                {{
+                                    t(
+                                        "buttons.cart",
+                                        basketStore.basket?.packages?.length ??
+                                            0,
+                                    )
+                                }}
+                            </ClientOnly>
+                        </Button>
+
+                        <!-- Mobile buttons -->
+                        <ClientOnly>
+                            <Button
+                                class="d-inline-flex d-sm-none btn--icon"
+                                variant="primary"
+                                :to="authStore.loginRoute"
+                                :aria-label="
+                                    authStore.isAuthenticated
+                                        ? isHovered
+                                            ? $t('buttons.logout')
+                                            : authStore.user.username
+                                        : $t('buttons.login')
+                                "
+                            >
+                                <Avatar :user="authStore.user" />
+                            </Button>
+                        </ClientOnly>
+
+                        <Button
+                            class="d-inline-flex d-sm-none"
+                            variant="success"
+                            icon="cart"
+                            @click="uiStore.toggleItem('cart-sidebar')"
+                            :aria-label="
+                                $t(
+                                    'buttons.cart',
                                     basketStore.basket?.packages?.length ?? 0,
                                 )
-                            }}
-                        </ClientOnly>
-                    </Button>
-
-                    <!-- Mobile buttons -->
-                    <ClientOnly>
-                        <Button
-                            class="d-inline-flex d-sm-none btn--icon"
-                            variant="primary"
-                            :to="authStore.loginRoute"
-                            :aria-label="
-                                authStore.isAuthenticated
-                                    ? isHovered
-                                        ? $t('buttons.logout')
-                                        : authStore.user.username
-                                    : $t('buttons.login')
                             "
                         >
-                            <Avatar :user="authStore.user" />
                         </Button>
-                    </ClientOnly>
-
-                    <Button
-                        class="d-inline-flex d-sm-none"
-                        variant="success"
-                        icon="cart"
-                        @click="uiStore.toggleItem('cart-sidebar')"
-                        :aria-label="
-                            $t(
-                                'buttons.cart',
-                                basketStore.basket?.packages?.length ?? 0,
-                            )
-                        "
-                    >
-                    </Button>
-                </div>
-            </nav>
+                    </div>
+                </nav>
+            </div>
         </div>
     </div>
 </template>
@@ -145,6 +143,7 @@
 <script setup lang="ts">
 import brandIcon from "~/assets/branding/horizon-wildlands-smp-icon.png";
 import brandLogo from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
+import headerBackdrop from "~/assets/branding/hero-bg.png";
 
 const uiStore = useUIStore();
 const authStore = useAuthStore();
@@ -190,10 +189,7 @@ onMounted(() => {
 const classes = computed(() => {
     return {
         header__container: true,
-        "pa-0": true,
         "header__container--sticky": isSticky.value,
-        container: !isSticky.value,
-        "container-fluid": isSticky.value,
     };
 });
 
@@ -205,6 +201,21 @@ const categoryStore = useCategoryStore();
 const { data: categories } = await useAsyncData("categories", () => {
     return categoryStore.fetchCategories();
 });
+
+const backdropStyle = computed(() => ({
+    backgroundImage: `linear-gradient(
+            180deg,
+            rgba(9, 5, 16, 0.5) 0%,
+            rgba(9, 5, 16, 0.74) 100%
+        ),
+        linear-gradient(
+            90deg,
+            rgba(23, 9, 42, 0.88) 0%,
+            rgba(23, 9, 42, 0.52) 45%,
+            rgba(57, 27, 96, 0.76) 100%
+        ),
+        url(${headerBackdrop})`,
+}));
 </script>
 
 <style lang="scss" scoped>
@@ -224,27 +235,59 @@ const { data: categories } = await useAsyncData("categories", () => {
     }
 
     &__container {
+        width: min(calc(100% - 24px), 1520px);
+        margin: 14px auto 0;
         transition:
+            transform 0.2s ease,
             background-color 0.2s ease,
             border-color 0.2s ease,
             box-shadow 0.2s ease;
-        border-bottom: 1px solid transparent;
 
         &--sticky {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: map-get($z-index, "header");
-            background-color: $header-sticky-bg;
-            backdrop-filter: blur(20px);
-            border-color: rgba(187, 140, 255, 0.12);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+            width: min(calc(100% - 24px), 1520px);
 
             #{$self}__logo {
                 width: 42px;
                 height: 42px;
             }
+        }
+    }
+
+    &__shell {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        border: 1px solid rgba(187, 140, 255, 0.14);
+        background: rgba(10, 6, 16, 0.88);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+        isolation: isolate;
+    }
+
+    &__backdrop {
+        position: absolute;
+        inset: 0;
+        opacity: 0.96;
+        background-position: center 35%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    &__nav {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 18px 22px;
+
+        @media (max-width: 767px) {
+            padding: 14px 16px;
+            gap: 12px;
         }
     }
 
@@ -254,9 +297,10 @@ const { data: categories } = await useAsyncData("categories", () => {
         gap: 14px;
         padding: 12px 16px;
         border: 0;
-        background: rgba(22, 14, 34, 0.88);
+        background: rgba(15, 10, 24, 0.8);
         border-radius: 9999px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(14px);
         cursor: pointer;
     }
 
