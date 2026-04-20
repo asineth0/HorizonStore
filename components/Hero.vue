@@ -37,34 +37,11 @@
                     <span>Exclusive perks</span>
                 </div>
             </div>
-
-            <div class="hero__panel">
-                <img class="hero__logo" :src="brandMark" alt="Horizon logo" />
-                <div class="hero__panel-copy">
-                    <span class="hero__panel-label">Top unlocks</span>
-                    <strong>Ranks, keys, and power boosts</strong>
-                    <span
-                        >Support Horizon while leveling up every session.</span
-                    >
-                </div>
-                <div class="hero__panel-list">
-                    <div>
-                        <small>What you get</small>
-                        <strong>Ranks, crates, cosmetics</strong>
-                    </div>
-                    <div>
-                        <small>Why it matters</small>
-                        <strong>Funds events, upkeep, and new content</strong>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import brandMark from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
-
 interface HeroProps {
     title: string;
     subtitle: string;
@@ -118,10 +95,9 @@ const appConfig = useAppConfig();
         color: $hero-banner-color;
 
         @include tools.media-breakpoint-up("md") {
-            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.62fr);
+            grid-template-columns: minmax(0, 1fr);
             align-items: center;
-            gap: 42px;
-            padding: 54px 50px 42px;
+            padding: 64px 64px 52px;
         }
     }
 
@@ -130,7 +106,7 @@ const appConfig = useAppConfig();
         flex-direction: column;
         justify-content: center;
         min-width: 0;
-        max-width: 48rem;
+        max-width: 52rem;
 
         h1 {
             color: inherit;
@@ -172,8 +148,7 @@ const appConfig = useAppConfig();
     }
 
     &__pill,
-    &__tags span,
-    &__panel {
+    &__tags span {
         backdrop-filter: blur(16px);
     }
 
@@ -208,48 +183,6 @@ const appConfig = useAppConfig();
             border: 1px solid rgba(187, 140, 255, 0.12);
             font-size: 0.88rem;
         }
-    }
-
-    &__panel {
-        display: grid;
-        gap: 18px;
-        align-self: center;
-        justify-self: end;
-        width: min(100%, 340px);
-        padding: 22px;
-        border-radius: 28px;
-        background: rgba(14, 8, 22, 0.68);
-        border: 1px solid rgba(187, 140, 255, 0.14);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-    }
-
-    &__logo {
-        width: 72px;
-        height: 72px;
-        object-fit: cover;
-        border-radius: 20px;
-    }
-
-    &__panel-copy,
-    &__panel-list {
-        display: grid;
-        gap: 8px;
-    }
-
-    &__panel-label,
-    small {
-        color: rgba(255, 255, 255, 0.72);
-    }
-
-    &__panel-copy strong,
-    &__panel-list strong {
-        font-size: 1.08rem;
-        color: #fff;
-    }
-
-    &__panel-list {
-        grid-template-columns: 1fr;
-        gap: 14px;
     }
 
     &__noise,
