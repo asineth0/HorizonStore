@@ -32,7 +32,7 @@
                     <NuxtImg
                         preload
                         class="header__logo d-none d-md-block"
-                        src="/logo.svg"
+                        src="/logo.png"
                         :alt="$t('store_name')"
                     />
 
@@ -43,9 +43,9 @@
                         :aria-label="$t('buttons.go_to_top')"
                     >
                         <NuxtImg
-                            src="/logo-icon.svg"
+                            src="/logo-icon.png"
                             :alt="$t('store_name')"
-                            width="16"
+                            width="40"
                         />
                     </Button>
                 </div>
@@ -204,7 +204,7 @@ const { data: categories } = await useAsyncData("categories", () => {
     width: 100%;
 
     img {
-        max-width: 120px;
+        max-width: 72px;
         margin: 0 auto;
     }
 

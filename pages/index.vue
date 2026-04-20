@@ -2,9 +2,15 @@
     <Hero
         :title="$t('index.hero.title')"
         :subtitle="$t('index.hero.subtitle')"
-        image="/sky.png"
-        class="mb-8"
+        image="/logo.png"
+        class="mb-8 hero-home"
     />
+
+    <div class="container welcome">
+        <h2>{{ $t("index.welcome.title") }}</h2>
+        <p>{{ $t("index.welcome.body_1") }}</p>
+        <p>{{ $t("index.welcome.body_2") }}</p>
+    </div>
 
     <div class="container">
         <div
@@ -77,7 +83,7 @@ useSeoMeta({
     ogTitle: t("index.hero.title"),
     description: t("index.hero.subtitle"),
     ogDescription: t("index.hero.subtitle"),
-    ogImage: "/Eleria.png",
+    ogImage: "/logo.png",
     twitterCard: "summary_large_image",
 });
 
@@ -93,5 +99,26 @@ const { data: categories } = await useAsyncData("categories", () => {
     &-link {
         text-decoration: none;
     }
+}
+
+.welcome {
+    max-width: 720px;
+    text-align: center;
+    margin-bottom: 48px;
+
+    h2 {
+        margin-bottom: 16px;
+    }
+
+    p {
+        opacity: 0.85;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+}
+
+.hero-home :deep(.hero__image) {
+    object-fit: contain;
+    filter: blur(2px);
 }
 </style>

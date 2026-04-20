@@ -9,22 +9,22 @@ export default defineI18nConfig(() => ({
                 notation: "standard",
             },
         },
-        "de-DE": {
-            currency: {
-                style: "currency",
-                currency: "EUR",
-                notation: "standard",
-            },
-        },
     },
     messages: {
         "en-US": {
-            store_name: "Example Store",
-            play: "example.play.com",
+            store_name: "Horizon: Wildlands SMP",
+            play: "play.horizonrp.net",
             index: {
                 hero: {
-                    title: "Hero Banner",
-                    subtitle: "CHECK OUT THE LATEST OFFERS",
+                    title: "Horizon: Wildlands SMP",
+                    subtitle: "Support the server. Unlock perks. Keep the wildlands thriving.",
+                },
+                welcome: {
+                    title: "Welcome to the Horizon: Wildlands SMP store",
+                    body_1:
+                        "Purchases help support server hosting, events, development, and future content. Packages are delivered automatically in-game after checkout. Make sure your Minecraft username is spelled correctly before buying.",
+                    body_2:
+                        "All packages are designed for the Horizon economy, Lifesteal progression, crates, clans, and survival gameplay. Perks may be adjusted over time for server balance, but purchased packages will keep their intended value.",
                 },
             },
             buttons: {
@@ -66,7 +66,11 @@ export default defineI18nConfig(() => ({
             },
             footer: {
                 join_our_discord: "Join our Discord",
-                copyright: "© 2024 {storeName}. All rights reserved.",
+                copyright: "© 2026 {storeName}. All rights reserved.",
+                support_note:
+                    "If your purchase does not arrive within a few minutes, open a support ticket with your Minecraft username, package name, and Tebex transaction ID.",
+                disclaimer:
+                    "Purchases are digital goods for Horizon: Wildlands SMP. Items, ranks, keys, and currency are delivered to the Minecraft username entered at checkout. Chargebacks or payment disputes may result in account restrictions until resolved.",
                 tebex: {
                     description:
                         "This website and its checkout process is operated by our online reseller & Merchant of Record, Tebex Limited, who also handles order-related inquiries and refunds.",
@@ -108,95 +112,5 @@ export default defineI18nConfig(() => ({
                 image_alt: "An image for the {name} category",
             },
         },
-        "de-DE": {
-            store_name: "Beispiel Shop",
-            play: "beispiel.shop.de",
-            index: {
-                hero: {
-                    title: "Hero Banner",
-                    subtitle: "SCHAUE DIR DIE NEUESTEN ANGEBOTE AN",
-                },
-            },
-            buttons: {
-                checkout: "Zur Kasse gehen",
-                cart: "Warenkorb | Warenkorb ({n}) | Warenkorb ({n})",
-                add_to_cart: "In den Warenkorb",
-                add_gift_to_cart: "Geschenk in den Warenkorb",
-                gift: "Geschenk",
-                login: "Anmelden",
-                logout: "Abmelden",
-                copied: "Kopiert!",
-                home: "Startseite",
-                menu: "Menü",
-                go_to_top: "Nach oben",
-            },
-            auth: {
-                login: {
-                    title: "Bitte gib deinen {gameTypeName} Benutzernamen ein",
-                },
-                logout: {
-                    title: "Bist du sicher, dass du dich abmelden möchtest?",
-                },
-                login_redirect: {
-                    title: "Hier klicken, um sich anzumelden",
-                    method: "Anmelden mit {name}",
-                },
-                login_complete: {
-                    title: "Erfolgreich angemeldet",
-                },
-                username: "Benutzername",
-            },
-            gift: {
-                input_placeholder: "Benutzername des Empfängers {gameTypeName}",
-            },
-            error: {
-                page_not_found: "Seite nicht gefunden",
-                cannot_add_package:
-                    "Du kannst dieses Paket nicht kaufen",
-            },
-            footer: {
-                join_our_discord: "Tritt unserem Discord bei",
-                copyright: "© 2024 {storeName}. Alle Rechte vorbehalten.",
-                tebex: {
-                    description:
-                        "Diese Website und ihr Checkout-Prozess werden von unserem Online-Reseller & Händler, Tebex Limited, betrieben, der auch für bestellbezogene Anfragen und Rückerstattungen zuständig ist.",
-                    impressum: "Impressum",
-                    privacy_policy: "Datenschutzerklärung",
-                    tos: "Nutzungsbedingungen",
-                },
-            },
-            messages: {
-                success: {
-                    added_to_cart: "{name} in den Warenkorb gelegt",
-                    removed_from_cart: "{name} aus dem Warenkorb entfernt",
-                },
-            },
-            sidebar: {
-                menu: "Menü",
-            },
-            titles: {
-                login: "Anmelden",
-                package: "{name}",
-            },
-            checkout: {
-                completed: {
-                    title: "Vielen Dank für deine Bestellung",
-                    subtitle:
-                        "Du solltest deine Artikel in wenigen Minuten erhalten",
-                },
-            },
-            cart: {
-                title: "Warenkorb",
-                empty: "Dein Warenkorb ist leer",
-                total: "Gesamt",
-                item: {
-                    quantity: "x{quantity}",
-                    gift_to: "Geschenk an {username}",
-                },
-            },
-            category: {
-                image_alt: "Ein Bild für die Kategorie {name}",
-            },
-        }
     },
 }));

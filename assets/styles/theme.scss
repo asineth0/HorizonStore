@@ -1,37 +1,23 @@
-// You can override the default settings using the SCSS with on the @forward rule for "./settings".
-// More information can be found here https://sass-lang.com/documentation/at-rules/use/#configuration
+// Horizon: Wildlands SMP palette — dark backgrounds with purple accents.
+// Overrides propagate through !default variables in ./settings/_variables.scss.
 
-//  Example of overriding the default settings:
-//
+@forward "./settings" with (
+    $background-100: #0a0612,
+    $background-200: #140a22,
 
-// @forward "./settings" with (
-//   // Base settings
-//   $pure-black: #000000,
-//   $pure-white: #ffffff,
+    $c-100: #1a0f2e,
+    $c-200: #261640,
+    $c-300: #3a2456,
 
-//   // Background
-//   $background-100: #ffffff,
-//   $background-200: #f2f2f2,
+    $primary: #a855f7,
 
-//   // Colour pallette
-//   $c-100: #e5e5e5,
-//   $c-200: #d1cfc6,
-//   $c-300: #cccccc,
-//   $c-400: #b2b2b2,
-//   $c-500: #7f7f7f,
-//   $c-600: #666666,
-//   $c-700: #4d4d4d,
-//   $c-800: #333333,
-//   $c-900: #1a1a1a,
+    $tertiary: #261640,
 
-//   $primary: #D81B60,
+    $border-bottom-color: rgba(168, 85, 247, 0.15),
 
-//   $text-high-emphasis-color: #000000,
-//   $text-base-color: #000000,
-
-//   // Components
-//   $modal-close-color: #000000,
-//   $loader-color: rgba(0, 0, 0, 0.6),
-// );
-
-@forward "./settings";
+    $hero-gradient: linear-gradient(
+        82.4deg,
+        #0a0612 0%,
+        rgba(168, 85, 247, 0) 91.9%
+    )
+);

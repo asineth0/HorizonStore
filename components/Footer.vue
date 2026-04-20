@@ -25,6 +25,13 @@
             </div>
         </div>
 
+        <div class="footer__notes container">
+            <p class="footer__note">{{ $t("footer.support_note") }}</p>
+            <p class="footer__note footer__note--disclaimer">
+                {{ $t("footer.disclaimer") }}
+            </p>
+        </div>
+
         <div class="footer__tebex">
             <div class="footer__tebex-inner container">
                 <div class="footer__tebex-description">
@@ -163,6 +170,29 @@ const appConfig = useAppConfig();
         display: flex;
         align-items: center;
         gap: 12px;
+    }
+
+    &__notes {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 8px 20px 20px;
+        max-width: 900px;
+
+        @include tools.media-breakpoint-up("md") {
+            padding: 8px 38px 24px;
+        }
+    }
+
+    &__note {
+        margin-bottom: 0;
+        color: $footer-copyright-color;
+        font-size: 12px;
+        line-height: 1.5;
+
+        &--disclaimer {
+            opacity: 0.75;
+        }
     }
 }
 </style>
