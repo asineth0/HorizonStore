@@ -108,7 +108,7 @@ const { data: categories } = await useAsyncData("categories", () => {
     margin-bottom: 48px;
 
     :deep(.header-card) {
-        padding: 0 24px;
+        padding: 16px 24px;
         box-shadow: var(--horizon-shadow);
         border: 1px solid var(--horizon-border);
     }

@@ -110,7 +110,6 @@ const appConfig = useAppConfig();
         display: flex;
         align-items: center;
         font-family: "Manrope";
-        min-height: $footer-tebex-height;
         background-color: $footer-tebex-bg;
         color: $footer-tebex-color;
         font-size: $footer-tebex-font-size;
@@ -121,29 +120,40 @@ const appConfig = useAppConfig();
             flex-direction: row;
             flex-wrap: wrap;
             align-items: center;
-            height: 100%;
-            gap: 20px;
+            justify-content: space-between;
+            gap: 14px 24px;
             width: 100%;
             margin: 0 auto;
-            padding: 16px 20px;
+            min-height: $footer-tebex-height;
+            padding: 14px 20px;
 
             @include tools.media-breakpoint-up("md") {
-                padding: 0 38px;
+                flex-wrap: nowrap;
+                padding: 14px 38px;
             }
         }
 
         &-description {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            min-width: 0;
+
+            a {
+                display: inline-flex;
+                flex: 0 0 auto;
+                align-items: center;
+            }
+
             svg {
+                display: block;
                 min-width: 51px;
             }
 
-            display: flex;
-            align-items: center;
-            gap: 20px;
-
             p {
+                min-width: 0;
                 @include tools.media-breakpoint-up("md") {
-                    max-width: 450px;
+                    max-width: 760px;
                 }
 
                 @include tools.media-breakpoint-up("lg") {
@@ -159,14 +169,19 @@ const appConfig = useAppConfig();
         &__links {
             display: flex;
             width: 100%;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 18px;
+            flex-wrap: wrap;
 
             @include tools.media-breakpoint-up("md") {
                 margin-left: auto;
                 width: auto;
+                flex: 0 0 auto;
+                justify-content: flex-end;
             }
+
             a + a {
-                margin-left: 22px;
+                margin-left: 0;
             }
         }
     }
