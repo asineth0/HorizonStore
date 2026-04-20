@@ -20,7 +20,7 @@ git remote add upstream git@github.com:tebexio/Headless-Template.git
 git pull upstream
 
 # Install dependencies
-npm install
+pnpm install
 ```
 
 ## Making Changes

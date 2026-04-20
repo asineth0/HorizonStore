@@ -1,9 +1,7 @@
 export default defineNuxtConfig({
-    experimental: {
-        configSchema: true,
-    },
     devtools: { enabled: true },
     modules: [
+        "@nuxt/eslint",
         "@nuxtjs/google-fonts",
         "nuxt-svgo",
         "@vueuse/nuxt",
@@ -16,6 +14,10 @@ export default defineNuxtConfig({
             Manrope: [400, 500, 600, 700, 800],
             "Space Grotesk": [500, 700],
         },
+    },
+    i18n: {
+        defaultLocale: "en-US",
+        vueI18n: "../i18n.config.ts",
     },
     // Runtime config is overridden by .env variables
     runtimeConfig: {

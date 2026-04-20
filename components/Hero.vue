@@ -197,10 +197,8 @@ const appConfig = useAppConfig();
     &__noise {
         inset: 0;
         opacity: 0.03;
-        background-image: linear-gradient(
-                rgba(255, 255, 255, 0.6) 1px,
-                transparent 1px
-            ),
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px),
             linear-gradient(
                 90deg,
                 rgba(255, 255, 255, 0.6) 1px,

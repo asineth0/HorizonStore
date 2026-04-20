@@ -28,7 +28,8 @@
         z-index: 0;
         height: min(96vh, 980px);
         pointer-events: none;
-        background-image: linear-gradient(
+        background-image:
+            linear-gradient(
                 180deg,
                 rgba(8, 9, 12, 0.12) 0%,
                 rgba(10, 11, 15, 0.36) 52%,

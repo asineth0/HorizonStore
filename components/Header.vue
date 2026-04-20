@@ -257,7 +257,8 @@ const { data: categories } = await useAsyncData("categories", () => {
         position: absolute;
         inset: 0;
         opacity: 0.96;
-        background: radial-gradient(
+        background:
+            radial-gradient(
                 circle at 24% 0%,
                 rgba(182, 140, 255, 0.12),
                 transparent 34%
