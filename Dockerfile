@@ -2,7 +2,7 @@ FROM node:20-alpine AS build
 
 WORKDIR /app
 
-ENV NODE_ENV=production
+ENV NUXT_TELEMETRY_DISABLED=1
 
 COPY package*.json ./
 RUN npm ci
@@ -15,6 +15,7 @@ FROM node:20-alpine AS runtime
 WORKDIR /app
 
 ENV NODE_ENV=production \
+    NUXT_TELEMETRY_DISABLED=1 \
     HOST=0.0.0.0 \
     PORT=3000
 
