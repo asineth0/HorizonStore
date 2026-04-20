@@ -169,7 +169,7 @@ if (appConfig.showCartOnAdd) {
 .cart__title {
     margin-inline: auto;
     font-weight: bold;
-    color: $c-800;
+    color: $c-900;
 }
 
 .cart__close {
@@ -179,5 +179,7 @@ if (appConfig.showCartOnAdd) {
 
 .cart__total {
     font-size: 1.5rem;
+    color: $c-900;
+    font-weight: 800;
 }
 </style>

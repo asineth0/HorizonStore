@@ -1,14 +1,18 @@
 <template>
     <div class="footer">
         <div class="footer__store container">
-            <div class="footer__copyright">
-                <p>
-                    {{
-                        $t("footer.copyright", {
-                            storeName: appConfig.storeName,
-                        })
-                    }}
-                </p>
+            <div class="footer__brand">
+                <img :src="brandLogo" alt="Horizon logo" />
+                <div class="footer__copyright">
+                    <p>
+                        {{
+                            $t("footer.copyright", {
+                                storeName: appConfig.storeName,
+                            })
+                        }}
+                    </p>
+                    <small>Wildlands SMP Minecraft store</small>
+                </div>
             </div>
             <div class="footer__links">
                 <PlayButton />
@@ -59,6 +63,8 @@
 </template>
 
 <script setup lang="ts">
+import brandLogo from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
+
 const appConfig = useAppConfig();
 </script>
 
@@ -69,6 +75,8 @@ const appConfig = useAppConfig();
 .footer {
     width: 100%;
     background-color: $footer-bg;
+    backdrop-filter: blur(18px);
+    border-top: 1px solid rgba(120, 89, 164, 0.1);
 
     &__store {
         display: flex;
@@ -78,7 +86,7 @@ const appConfig = useAppConfig();
         margin: 0 auto;
         width: 100%;
         justify-content: space-between;
-        padding: 16px 20px;
+        padding: 22px 20px;
         gap: 15px;
 
         @include tools.media-breakpoint-up("md") {
@@ -87,14 +95,29 @@ const appConfig = useAppConfig();
         }
     }
 
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        img {
+            width: 56px;
+            height: 56px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 14px 28px rgba(82, 46, 128, 0.12);
+        }
+    }
+
     &__tebex {
         display: flex;
         align-items: center;
-        font-family: "Lato";
+        font-family: "Manrope";
         min-height: $footer-tebex-height;
         background-color: $footer-tebex-bg;
         color: $footer-tebex-color;
         font-size: $footer-tebex-font-size;
+        border-top: 1px solid rgba(120, 89, 164, 0.08);
 
         &-inner {
             display: flex;
@@ -157,12 +180,17 @@ const appConfig = useAppConfig();
             margin-bottom: 0;
             color: $footer-copyright-color;
         }
+
+        p {
+            font-weight: 700;
+        }
     }
 
     &__links {
         display: flex;
         align-items: center;
         gap: 12px;
+        flex-wrap: wrap;
     }
 }
 </style>

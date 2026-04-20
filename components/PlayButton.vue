@@ -8,8 +8,9 @@
             variant="secondary"
             @click="copy(appConfig.serverIp)"
             v-bind="$attrs"
+            prepend-icon="home"
         >
-            {{ copied ? $t("buttons.copied") : $t("play") }}
+            {{ copied ? $t("buttons.copied") : `Play • ${$t("play")}` }}
         </Button>
     </UseClipboard>
 </template>

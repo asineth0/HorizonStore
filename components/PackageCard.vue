@@ -164,6 +164,17 @@ const quantity = ref<number>(1);
         position: relative;
         gap: 20px;
         width: 100%;
+        border: 1px solid rgba(120, 89, 164, 0.1);
+        transition:
+            transform 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    &:hover &__inner {
+        transform: translateY(-6px);
+        border-color: rgba(120, 89, 164, 0.22);
+        box-shadow: 0 30px 65px rgba(82, 46, 128, 0.14);
     }
 
     .package-actions {
@@ -182,6 +193,7 @@ const quantity = ref<number>(1);
             font-size: $package-card-price-font-size;
             font-weight: 700;
             color: $package-card-price-color;
+            margin-bottom: 8px;
         }
 
         text-align: $package-card-meta-text-align;
@@ -194,12 +206,21 @@ const quantity = ref<number>(1);
         padding: 32px;
         flex-grow: 1;
         background: $package-card-image-bg;
+        border-radius: 22px;
+
+        img {
+            filter: drop-shadow(0 16px 28px rgba(109, 83, 168, 0.16));
+        }
     }
 
     &__details {
         display: flex;
         flex-direction: column;
         padding: $package-card-details-padding;
+    }
+
+    :deep(.package-actions) {
+        padding: $package-card-actions-padding;
     }
 
     &--details {

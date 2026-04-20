@@ -38,9 +38,28 @@ defineProps<CategoryCardProps>();
     border-radius: $category-card-border-radius;
     border: $category-card-border;
     min-width: $category-card-min-width;
+    background: $category-card-bg;
+    box-shadow: var(--horizon-shadow);
+    padding: 22px;
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(120, 89, 164, 0.28);
+        box-shadow: 0 28px 60px rgba(82, 46, 128, 0.16);
+    }
 
     img {
         object-fit: contain;
+        filter: drop-shadow(0 12px 24px rgba(109, 83, 168, 0.16));
+    }
+
+    &__header {
+        margin-top: 18px;
+        text-align: center;
     }
 }
 </style>

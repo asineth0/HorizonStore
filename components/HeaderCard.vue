@@ -20,5 +20,6 @@
     border-radius: $header-card-border-radius;
     background-color: $header-card-bg;
     color: $header-card-color;
+    border: 1px solid rgba(120, 89, 164, 0.12);
 }
 </style>

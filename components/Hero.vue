@@ -8,14 +8,63 @@
                 loading="lazy"
             />
         </div>
-        <div class="hero__title">
-            <h1>{{ title }}</h1>
-            <div>{{ subtitle }}</div>
+        <div class="hero__noise"></div>
+        <div class="hero__orb hero__orb--one"></div>
+        <div class="hero__orb hero__orb--two"></div>
+
+        <div class="hero__content">
+            <div class="hero__copy">
+                <div class="hero__pill">Minecraft Tebex Store</div>
+                <h1>{{ title }}</h1>
+                <p>{{ subtitle }}</p>
+
+                <div class="hero__actions">
+                    <PlayButton size="lg" />
+
+                    <Button
+                        v-if="appConfig.discordUrl"
+                        tag="a"
+                        :href="appConfig.discordUrl"
+                        variant="secondary"
+                        size="lg"
+                        prepend-icon="discord"
+                    >
+                        Join the Discord
+                    </Button>
+                </div>
+
+                <div class="hero__tags">
+                    <span>Fast package delivery</span>
+                    <span>Secure Tebex checkout</span>
+                    <span>Pastel fantasy storefront</span>
+                </div>
+            </div>
+
+            <div class="hero__panel">
+                <img class="hero__logo" :src="brandMark" alt="Horizon logo" />
+                <div class="hero__panel-copy">
+                    <span class="hero__panel-label">Featured realm</span>
+                    <strong>Horizon: Wildlands SMP</strong>
+                    <span>{{ appConfig.serverIp }}</span>
+                </div>
+                <div class="hero__panel-list">
+                    <div>
+                        <small>Store focus</small>
+                        <strong>Ranks, crates, cosmetics</strong>
+                    </div>
+                    <div>
+                        <small>Community hub</small>
+                        <strong>discord.gg/HorizonSMP</strong>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import brandMark from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
+
 interface HeroProps {
     title: string;
     subtitle: string;
@@ -23,22 +72,25 @@ interface HeroProps {
 }
 
 defineProps<HeroProps>();
+
+const appConfig = useAppConfig();
 </script>
 
 <style lang="scss" scoped>
 @use "~/assets/styles/settings" as *;
+@use "~/assets/styles/tools";
 
 .hero {
     position: relative;
     width: 100%;
     height: $hero-banner-height;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    display: grid;
+    align-items: stretch;
     border-radius: $hero-banner-border-radius;
     overflow: hidden;
+    box-shadow: var(--horizon-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    margin: 0 8px;
 
     @if ($hero-gradient) {
         &::after {
@@ -55,13 +107,44 @@ defineProps<HeroProps>();
         }
     }
 
-    &__title {
-        h1 {
-            color: inherit;
-        }
-        color: $hero-banner-color;
+    &__content {
         position: relative;
         z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 34px 22px;
+        color: $hero-banner-color;
+
+        @include tools.media-breakpoint-up("md") {
+            grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+            align-items: end;
+            gap: 36px;
+            padding: 42px;
+        }
+    }
+
+    &__copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+
+        h1 {
+            color: inherit;
+            max-width: 14ch;
+            margin-bottom: 16px;
+            line-height: 1.05;
+            font-size: clamp(2.75rem, 5vw, 5rem);
+        }
+
+        p {
+            max-width: 40rem;
+            margin-bottom: 0;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(255, 255, 255, 0.86);
+        }
     }
 
     &__background {
@@ -79,6 +162,147 @@ defineProps<HeroProps>();
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transform: scale(1.05);
+    }
+
+    &__pill,
+    &__tags span,
+    &__panel {
+        backdrop-filter: blur(16px);
+    }
+
+    &__pill {
+        width: fit-content;
+        margin-bottom: 18px;
+        padding: 10px 16px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+
+        span {
+            padding: 9px 14px;
+            border-radius: 9999px;
+            background: rgba(24, 8, 44, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 0.88rem;
+        }
+    }
+
+    &__panel {
+        display: grid;
+        gap: 18px;
+        align-self: end;
+        padding: 22px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 24px 60px rgba(17, 4, 36, 0.16);
+    }
+
+    &__logo {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+
+    &__panel-copy,
+    &__panel-list {
+        display: grid;
+        gap: 8px;
+    }
+
+    &__panel-label,
+    small {
+        color: rgba(255, 255, 255, 0.72);
+    }
+
+    &__panel-copy strong,
+    &__panel-list strong {
+        font-size: 1.08rem;
+        color: #fff;
+    }
+
+    &__panel-list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    &__noise,
+    &__orb {
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__noise {
+        inset: 0;
+        opacity: 0.08;
+        background-image: linear-gradient(
+                rgba(255, 255, 255, 0.6) 1px,
+                transparent 1px
+            ),
+            linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.6) 1px,
+                transparent 1px
+            );
+        background-size: 32px 32px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    &__orb {
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.42),
+            transparent 72%
+        );
+
+        &--one {
+            width: 18rem;
+            height: 18rem;
+            top: -5rem;
+            right: 10%;
+            animation: hero-float 12s ease-in-out infinite;
+        }
+
+        &--two {
+            width: 14rem;
+            height: 14rem;
+            bottom: -4rem;
+            left: 36%;
+            animation: hero-float 15s ease-in-out infinite reverse;
+        }
+    }
+}
+
+@keyframes hero-float {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -14px, 0);
     }
 }
 </style>

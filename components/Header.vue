@@ -11,6 +11,7 @@
             >
                 <div class="col d-flex align-center ga-4">
                     <Button
+                        v-if="appConfig.mainSiteUrl"
                         tag="a"
                         :href="appConfig.mainSiteUrl"
                         icon="home"
@@ -28,13 +29,22 @@
 
                     <PlayButton class="d-none d-lg-inline-flex" />
                 </div>
-                <div class="col d-flex align-center">
-                    <NuxtImg
-                        preload
-                        class="header__logo d-none d-md-block"
-                        src="/logo.svg"
-                        :alt="$t('store_name')"
-                    />
+                <div class="col d-flex align-center justify-center">
+                    <button
+                        class="header__brand d-none d-md-inline-flex"
+                        type="button"
+                        @click="scrollToTop"
+                    >
+                        <img
+                            class="header__logo"
+                            :src="brandLogo"
+                            :alt="$t('store_name')"
+                        />
+                        <span class="header__brand-copy">
+                            <strong>{{ appConfig.storeName }}</strong>
+                            <small>{{ appConfig.serverIp }}</small>
+                        </span>
+                    </button>
 
                     <Button
                         variant="clear"
@@ -42,10 +52,10 @@
                         @click="scrollToTop"
                         :aria-label="$t('buttons.go_to_top')"
                     >
-                        <NuxtImg
-                            src="/logo-icon.svg"
+                        <img
+                            :src="brandIcon"
                             :alt="$t('store_name')"
-                            width="16"
+                            width="36"
                         />
                     </Button>
                 </div>
@@ -132,6 +142,9 @@
 </template>
 
 <script setup lang="ts">
+import brandIcon from "~/assets/branding/horizon-wildlands-smp-icon.png";
+import brandLogo from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
+
 const uiStore = useUIStore();
 const authStore = useAuthStore();
 const basketStore = useBasketStore();
@@ -200,15 +213,22 @@ const { data: categories } = await useAsyncData("categories", () => {
 .header {
     $self: &;
     background-color: $header-bg;
-
     width: 100%;
+    position: relative;
+    z-index: map-get($z-index, "header");
 
     img {
-        max-width: 120px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
     &__container {
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+        border-bottom: 1px solid transparent;
+
         &--sticky {
             position: fixed;
             top: 0;
@@ -216,14 +236,53 @@ const { data: categories } = await useAsyncData("categories", () => {
             right: 0;
             z-index: map-get($z-index, "header");
             background-color: $header-sticky-bg;
+            backdrop-filter: blur(20px);
+            border-color: rgba(120, 89, 164, 0.14);
+            box-shadow: 0 14px 36px rgba(69, 41, 109, 0.08);
 
             #{$self}__logo {
-                display: none !important;
-
-                &-icon {
-                    display: block !important;
-                }
+                width: 42px;
+                height: 42px;
             }
+        }
+    }
+
+    &__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 16px;
+        border: 0;
+        background: rgba(255, 255, 255, 0.62);
+        border-radius: 9999px;
+        box-shadow: 0 18px 40px rgba(82, 46, 128, 0.08);
+        cursor: pointer;
+    }
+
+    &__logo {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 16px;
+
+        &-icon img {
+            border-radius: 12px;
+        }
+    }
+
+    &__brand-copy {
+        display: grid;
+        text-align: left;
+        line-height: 1.15;
+
+        strong {
+            font-family: $heading-font-family;
+            font-size: 0.98rem;
+            color: $c-900;
+        }
+
+        small {
+            color: $c-700;
         }
     }
 }

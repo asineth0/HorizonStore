@@ -70,3 +70,36 @@ if (route.query.success && isClient) {
     }
 }
 </script>
+
+<style lang="scss">
+:root {
+    --horizon-glow: radial-gradient(
+        circle at top,
+        rgba(207, 183, 255, 0.72),
+        rgba(207, 183, 255, 0)
+    );
+    --horizon-panel: rgba(255, 255, 255, 0.78);
+    --horizon-border: rgba(120, 89, 164, 0.16);
+    --horizon-shadow: 0 24px 80px rgba(82, 46, 128, 0.12);
+}
+
+html {
+    background: #f7f2ff;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(
+            circle at top left,
+            rgba(213, 192, 255, 0.62),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at top right,
+            rgba(238, 229, 255, 0.9),
+            transparent 28%
+        ),
+        linear-gradient(180deg, #fbf9ff 0%, #f3ecfe 52%, #f7f2ff 100%);
+    color: #5d4775;
+}
+</style>

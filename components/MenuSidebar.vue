@@ -72,7 +72,7 @@ const isActive = computed({
 .menu__title {
     margin-inline: auto;
     font-weight: bold;
-    color: $c-800;
+    color: $c-900;
 }
 
 .menu__close {
@@ -83,5 +83,6 @@ const isActive = computed({
 .category__button {
     justify-content: flex-start;
     font-size: 20px;
+    border: 1px solid rgba(120, 89, 164, 0.1);
 }
 </style>

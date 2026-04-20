@@ -13,7 +13,8 @@ export default defineNuxtConfig({
     ],
     googleFonts: {
         families: {
-            Lato: true,
+            Manrope: [400, 500, 600, 700, 800],
+            "Space Grotesk": [500, 700],
         },
     },
     // Runtime config is overridden by .env variables
