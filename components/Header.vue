@@ -59,7 +59,7 @@
                     <div class="col d-flex justify-end align-center ga-4">
                         <ClientOnly>
                             <Button
-                                class="d-none d-sm-inline-flex login-btn"
+                                class="header__action d-none d-sm-inline-flex login-btn"
                                 variant="primary"
                                 :to="authStore.loginRoute"
                                 ref="loginButton"
@@ -86,7 +86,7 @@
                             </Button>
                         </ClientOnly>
                         <Button
-                            class="d-none d-sm-inline-flex"
+                            class="header__action d-none d-sm-inline-flex"
                             variant="success"
                             prependIcon="cart"
                             @click="uiStore.toggleItem('cart-sidebar')"
@@ -105,7 +105,7 @@
                         <!-- Mobile buttons -->
                         <ClientOnly>
                             <Button
-                                class="d-inline-flex d-sm-none btn--icon"
+                                class="header__action d-inline-flex d-sm-none btn--icon"
                                 variant="primary"
                                 :to="authStore.loginRoute"
                                 :aria-label="
@@ -121,7 +121,7 @@
                         </ClientOnly>
 
                         <Button
-                            class="d-inline-flex d-sm-none"
+                            class="header__action d-inline-flex d-sm-none"
                             variant="success"
                             icon="cart"
                             @click="uiStore.toggleItem('cart-sidebar')"
@@ -282,6 +282,14 @@ const { data: categories } = await useAsyncData("categories", () => {
         @media (max-width: 767px) {
             padding: 14px 16px;
             gap: 12px;
+        }
+    }
+
+    &__action {
+        color: #fff;
+
+        &:hover {
+            color: #fff;
         }
     }
 

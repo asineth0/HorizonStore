@@ -10,7 +10,7 @@
             v-bind="$attrs"
             prepend-icon="home"
         >
-            {{ copied ? $t("buttons.copied") : `Play • ${$t("play")}` }}
+            {{ copied ? $t("buttons.copied") : appConfig.serverIp }}
         </Button>
     </UseClipboard>
 </template>
