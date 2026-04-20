@@ -84,9 +84,9 @@ if (route.query.success && isClient) {
     --horizon-ease: cubic-bezier(0.45, 0, 0.2, 1);
     --horizon-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     --horizon-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-    --horizon-motion-fast: 180ms;
-    --horizon-motion-base: 320ms;
-    --horizon-motion-slow: 620ms;
+    --horizon-motion-fast: 90ms;
+    --horizon-motion-base: 160ms;
+    --horizon-motion-slow: 310ms;
 }
 
 html {

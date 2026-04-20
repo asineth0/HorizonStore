@@ -222,7 +222,6 @@ const { data: categories } = await useAsyncData("categories", () => {
         width: min(calc(100% - 24px), 1520px);
         margin: 14px auto 0;
         transition:
-            transform var(--horizon-motion-base) var(--horizon-ease-in-out),
             background-color var(--horizon-motion-base)
                 var(--horizon-ease-in-out),
             border-color var(--horizon-motion-base) var(--horizon-ease-in-out),
@@ -231,8 +230,8 @@ const { data: categories } = await useAsyncData("categories", () => {
         &--sticky {
             position: fixed;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
             z-index: map-get($z-index, "header");
             width: min(calc(100% - 24px), 1520px);
 

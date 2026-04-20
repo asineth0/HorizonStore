@@ -7,6 +7,7 @@
         class="modal__container"
         tabindex="-1"
         role="dialog"
+        @click.self="closeModal"
     >
         <div class="modal" ref="modal" tabindex="0" :style="style">
             <Button
@@ -42,6 +43,14 @@ const style = computed(() => ({
 }));
 
 const { activate, deactivate } = useFocusTrap(modal, { initialFocus: false });
+
+if (IN_BROWSER) {
+    useEventListener(document, "keydown", (event) => {
+        if (event.key === "Escape" && model.value) {
+            closeModal();
+        }
+    });
+}
 
 const onAfterEnter = async () => {
     document.body.style.overflow = "hidden";
