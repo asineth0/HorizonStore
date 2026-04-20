@@ -14,8 +14,6 @@
                 </div>
             </div>
             <div class="footer__links">
-                <PlayButton />
-
                 <Button
                     v-if="appConfig.discordUrl"
                     tag="a"

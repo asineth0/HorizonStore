@@ -2,7 +2,7 @@
     <div class="header" :style="{ height }">
         <div :class="classes" ref="header">
             <div class="header__shell">
-                <div class="header__backdrop" :style="backdropStyle"></div>
+                <div class="header__backdrop"></div>
 
                 <nav class="header__nav">
                     <div class="col d-flex align-center ga-4">
@@ -39,7 +39,7 @@
                             />
                             <span class="header__brand-copy">
                                 <strong>{{ appConfig.storeName }}</strong>
-                                <small>{{ appConfig.serverIp }}</small>
+                                <small>Wildlands SMP</small>
                             </span>
                         </button>
 
@@ -143,7 +143,6 @@
 <script setup lang="ts">
 import brandIcon from "~/assets/branding/horizon-wildlands-smp-icon.png";
 import brandLogo from "~/assets/branding/horizon-wildlands-smp-icon-bg.png";
-import headerBackdrop from "~/assets/branding/hero-bg.png";
 
 const uiStore = useUIStore();
 const authStore = useAuthStore();
@@ -201,21 +200,6 @@ const categoryStore = useCategoryStore();
 const { data: categories } = await useAsyncData("categories", () => {
     return categoryStore.fetchCategories();
 });
-
-const backdropStyle = computed(() => ({
-    backgroundImage: `linear-gradient(
-            180deg,
-            rgba(9, 5, 16, 0.5) 0%,
-            rgba(9, 5, 16, 0.74) 100%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(23, 9, 42, 0.88) 0%,
-            rgba(23, 9, 42, 0.52) 45%,
-            rgba(57, 27, 96, 0.76) 100%
-        ),
-        url(${headerBackdrop})`,
-}));
 </script>
 
 <style lang="scss" scoped>
@@ -272,9 +256,17 @@ const backdropStyle = computed(() => ({
         position: absolute;
         inset: 0;
         opacity: 0.96;
-        background-position: center 35%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background: radial-gradient(
+                circle at 24% 0%,
+                rgba(187, 140, 255, 0.2),
+                transparent 34%
+            ),
+            linear-gradient(
+                90deg,
+                rgba(13, 7, 22, 0.96) 0%,
+                rgba(19, 10, 30, 0.92) 52%,
+                rgba(39, 20, 62, 0.88) 100%
+            );
     }
 
     &__nav {

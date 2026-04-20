@@ -1,10 +1,11 @@
 <template>
     <div class="hero">
         <div class="hero__background">
-            <NuxtImg
+            <img
                 class="hero__image"
                 :src="image"
-                :alt="title"
+                alt=""
+                aria-hidden="true"
                 loading="lazy"
             />
         </div>
@@ -18,20 +19,17 @@
                 <h1>{{ title }}</h1>
                 <p>{{ subtitle }}</p>
 
-                <div class="hero__actions">
-                    <PlayButton size="lg" />
-
-                    <Button
-                        v-if="appConfig.discordUrl"
-                        tag="a"
-                        :href="appConfig.discordUrl"
-                        variant="secondary"
-                        size="lg"
-                        prepend-icon="discord"
-                    >
-                        Join the Discord
-                    </Button>
-                </div>
+                <Button
+                    v-if="appConfig.discordUrl"
+                    class="hero__discord"
+                    tag="a"
+                    :href="appConfig.discordUrl"
+                    variant="secondary"
+                    size="lg"
+                    prepend-icon="discord"
+                >
+                    Join the Discord
+                </Button>
 
                 <div class="hero__tags">
                     <span>Premium ranks</span>
@@ -92,7 +90,7 @@ const appConfig = useAppConfig();
     overflow: hidden;
     box-shadow: var(--horizon-shadow);
     border: 1px solid rgba(187, 140, 255, 0.16);
-    margin: 0 auto;
+    margin: 34px auto 0;
 
     @if ($hero-gradient) {
         &::after {
@@ -192,10 +190,8 @@ const appConfig = useAppConfig();
         text-transform: uppercase;
     }
 
-    &__actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
+    &__discord {
+        width: fit-content;
         margin-top: 30px;
     }
 
@@ -319,6 +315,7 @@ const appConfig = useAppConfig();
 @media (max-width: 959px) {
     .hero {
         width: min(calc(100% - 24px), 1320px);
+        margin-top: 22px;
     }
 }
 </style>
