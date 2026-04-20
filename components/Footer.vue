@@ -11,7 +11,6 @@
                             })
                         }}
                     </p>
-                    <small>Wildlands SMP Minecraft store</small>
                 </div>
             </div>
             <div class="footer__links">
@@ -76,7 +75,7 @@ const appConfig = useAppConfig();
     width: 100%;
     background-color: $footer-bg;
     backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(120, 89, 164, 0.1);
+    border-top: 1px solid rgba(187, 140, 255, 0.08);
 
     &__store {
         display: flex;
@@ -105,7 +104,7 @@ const appConfig = useAppConfig();
             height: 56px;
             object-fit: cover;
             border-radius: 18px;
-            box-shadow: 0 14px 28px rgba(82, 46, 128, 0.12);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
         }
     }
 
@@ -117,7 +116,7 @@ const appConfig = useAppConfig();
         background-color: $footer-tebex-bg;
         color: $footer-tebex-color;
         font-size: $footer-tebex-font-size;
-        border-top: 1px solid rgba(120, 89, 164, 0.08);
+        border-top: 1px solid rgba(187, 140, 255, 0.08);
 
         &-inner {
             display: flex;

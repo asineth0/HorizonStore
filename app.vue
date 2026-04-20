@@ -75,31 +75,31 @@ if (route.query.success && isClient) {
 :root {
     --horizon-glow: radial-gradient(
         circle at top,
-        rgba(207, 183, 255, 0.72),
-        rgba(207, 183, 255, 0)
+        rgba(124, 86, 196, 0.36),
+        rgba(124, 86, 196, 0)
     );
-    --horizon-panel: rgba(255, 255, 255, 0.78);
-    --horizon-border: rgba(120, 89, 164, 0.16);
-    --horizon-shadow: 0 24px 80px rgba(82, 46, 128, 0.12);
+    --horizon-panel: rgba(20, 12, 30, 0.88);
+    --horizon-border: rgba(187, 140, 255, 0.14);
+    --horizon-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
 }
 
 html {
-    background: #f7f2ff;
+    background: #090510;
     scroll-behavior: smooth;
 }
 
 body {
     background: radial-gradient(
             circle at top left,
-            rgba(213, 192, 255, 0.62),
+            rgba(113, 74, 186, 0.26),
             transparent 32%
         ),
         radial-gradient(
             circle at top right,
-            rgba(238, 229, 255, 0.9),
+            rgba(75, 48, 122, 0.24),
             transparent 28%
         ),
-        linear-gradient(180deg, #fbf9ff 0%, #f3ecfe 52%, #f7f2ff 100%);
-    color: #5d4775;
+        linear-gradient(180deg, #0d0714 0%, #090510 52%, #050309 100%);
+    color: #c3aedf;
 }
 </style>

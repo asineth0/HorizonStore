@@ -3,85 +3,75 @@
         :title="$t('index.hero.title')"
         :subtitle="$t('index.hero.subtitle')"
         :image="heroBackground"
-        class="mb-10"
+        class="mb-8"
     />
 
     <div class="container storefront">
-        <section v-if="categories?.length" class="storefront__intro mb-8">
-            <div>
-                <span class="storefront__eyebrow">Store categories</span>
-                <h2>Choose the upgrades that fit your playstyle</h2>
-                <p>
-                    Every purchase supports Horizon while keeping checkout and
-                    delivery handled through Tebex.
-                </p>
-            </div>
-            <div v-if="categories.length > 3" class="storefront__chips">
+        <aside
+            v-if="categories?.length"
+            class="storefront__sidebar d-none d-lg-block"
+        >
+            <div class="storefront__sidebar-inner">
+                <span class="storefront__sidebar-label">Categories</span>
+
                 <NuxtLink
                     v-for="category in categories"
                     :key="category.id"
-                    class="storefront__chip"
+                    class="storefront__sidebar-link"
                     :to="{ hash: `#${titleCase(category.name)}` }"
                 >
-                    {{ category.name }}
+                    <NuxtImg
+                        v-if="category.packages[0].image"
+                        :src="category.packages[0].image"
+                        :alt="category.name"
+                        width="48"
+                        height="48"
+                    />
+                    <span>{{ category.name }}</span>
                 </NuxtLink>
             </div>
-        </section>
+        </aside>
 
-        <div
-            v-if="categories && categories.length > 3"
-            class="row justify-center storefront__categories"
-        >
+        <div class="storefront__content">
             <div
-                class="col-auto"
                 v-for="category in categories"
                 :key="category.id"
+                :id="titleCase(category.name)"
+                class="category"
             >
-                <NuxtLink
-                    class="category-link"
-                    tag="a"
-                    :to="{
-                        hash: `#${titleCase(category.name)}`,
-                    }"
-                >
-                    <CategoryCard
-                        :image="category.packages[0].image"
-                        :category="category"
+                <HeaderCard>
+                    <NuxtImg
+                        :src="category.packages[0].image"
+                        :alt="category.name"
+                        width="60px"
+                        class="mr-3"
                     />
-                </NuxtLink>
-            </div>
-        </div>
 
-        <div class="d-flex my-6 w-100"></div>
+                    <div class="category__heading">
+                        <h3>{{ category.name }}</h3>
+                        <small>
+                            {{ category.packages.length }}
+                            {{
+                                category.packages.length === 1
+                                    ? "item"
+                                    : "items"
+                            }}
+                        </small>
+                    </div>
+                </HeaderCard>
 
-        <div
-            v-for="category in categories"
-            :key="category.id"
-            :id="titleCase(category.name)"
-            class="category"
-        >
-            <HeaderCard>
-                <NuxtImg
-                    :src="category.packages[0].image"
-                    :alt="category.name"
-                    width="60px"
-                    class="mr-3"
-                />
-
-                <h3>{{ category.name }}</h3>
-            </HeaderCard>
-
-            <div class="row">
-                <div
-                    class="col-12 col-sm-6 col-md-4 col-lg-3"
-                    v-for="pkg in category.packages"
-                    :key="pkg.id"
-                >
-                    <PackageCard
-                        :pkg="pkg"
-                        :row="category.packages.length === 1"
-                        hide-options
-                    />
+                <div class="row">
+                    <div
+                        class="col-12 col-sm-6 col-xl-4"
+                        v-for="pkg in category.packages"
+                        :key="pkg.id"
+                    >
+                        <PackageCard
+                            :pkg="pkg"
+                            :row="category.packages.length === 1"
+                            hide-options
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,74 +102,92 @@ const { data: categories } = await useAsyncData("categories", () => {
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/styles/tools";
+
 .category {
-    margin-bottom: 52px;
+    margin-bottom: 48px;
 
     :deep(.header-card) {
-        padding: 0 28px;
+        padding: 0 24px;
         box-shadow: var(--horizon-shadow);
         border: 1px solid var(--horizon-border);
     }
 
-    &-link {
-        text-decoration: none;
+    &__heading {
+        display: grid;
+        gap: 4px;
+
+        small {
+            color: #a88ad0;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
     }
 }
 
 .storefront {
     position: relative;
     z-index: 1;
+    display: grid;
+    gap: 28px;
 
-    &__intro {
-        display: grid;
-        gap: 20px;
-        padding: 0 8px;
-
-        h2 {
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-bottom: 0;
-            max-width: 48rem;
-        }
+    @include tools.media-breakpoint-up("lg") {
+        grid-template-columns: 260px minmax(0, 1fr);
+        align-items: start;
     }
 
-    &__eyebrow {
-        display: inline-flex;
-        margin-bottom: 14px;
-        padding: 8px 14px;
-        border-radius: 9999px;
-        background: rgba(237, 226, 255, 0.85);
-        color: #6c46a8;
-        font-size: 0.82rem;
+    &__content {
+        min-width: 0;
+    }
+
+    &__sidebar {
+        position: sticky;
+        top: 110px;
+    }
+
+    &__sidebar-inner {
+        display: grid;
+        gap: 12px;
+        padding: 20px;
+        border-radius: 28px;
+        background: var(--horizon-panel);
+        border: 1px solid var(--horizon-border);
+        box-shadow: var(--horizon-shadow);
+    }
+
+    &__sidebar-label {
+        color: #b293de;
+        font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
         text-transform: uppercase;
     }
 
-    &__chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    &__chip {
-        padding: 12px 18px;
-        border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.74);
-        border: 1px solid rgba(120, 89, 164, 0.12);
-        color: #563c6d;
+    &__sidebar-link {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        align-items: center;
+        gap: 14px;
+        padding: 10px 12px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(187, 140, 255, 0.08);
+        color: #efe3ff;
         text-decoration: none;
         transition:
             transform 0.2s ease,
             background-color 0.2s ease,
             border-color 0.2s ease;
 
+        img {
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
         &:hover {
             transform: translateY(-2px);
-            background: rgba(237, 226, 255, 0.94);
-            border-color: rgba(120, 89, 164, 0.22);
+            background: rgba(187, 140, 255, 0.08);
+            border-color: rgba(187, 140, 255, 0.2);
         }
     }
 }

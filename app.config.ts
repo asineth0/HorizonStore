@@ -25,15 +25,15 @@ export default defineAppConfig({
     gameTypeName: "Minecraft",
     // Tebex.js settings see https://docs.tebex.io/developers/tebex.js/integration#config
     tebexJsConfig: {
-        theme: "light",
+        theme: "dark",
         colors: [
             {
                 name: "primary",
-                color: "#B78CFF",
+                color: "#BB8CFF",
             },
             {
                 name: "secondary",
-                color: "#2F1B45",
+                color: "#140C1F",
             },
         ],
     },

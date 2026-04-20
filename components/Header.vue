@@ -21,6 +21,7 @@
 
                     <Button
                         v-if="categories && categories.length > 3"
+                        class="d-inline-flex d-lg-none"
                         icon="menu"
                         @click="uiStore.toggleItem('menu-sidebar')"
                         variant="clear"
@@ -237,8 +238,8 @@ const { data: categories } = await useAsyncData("categories", () => {
             z-index: map-get($z-index, "header");
             background-color: $header-sticky-bg;
             backdrop-filter: blur(20px);
-            border-color: rgba(120, 89, 164, 0.14);
-            box-shadow: 0 14px 36px rgba(69, 41, 109, 0.08);
+            border-color: rgba(187, 140, 255, 0.12);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
 
             #{$self}__logo {
                 width: 42px;
@@ -253,9 +254,9 @@ const { data: categories } = await useAsyncData("categories", () => {
         gap: 14px;
         padding: 12px 16px;
         border: 0;
-        background: rgba(255, 255, 255, 0.62);
+        background: rgba(22, 14, 34, 0.88);
         border-radius: 9999px;
-        box-shadow: 0 18px 40px rgba(82, 46, 128, 0.08);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
         cursor: pointer;
     }
 

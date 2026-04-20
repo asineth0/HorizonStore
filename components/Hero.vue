@@ -14,7 +14,7 @@
 
         <div class="hero__content">
             <div class="hero__copy">
-                <div class="hero__pill">Minecraft Tebex Store</div>
+                <div class="hero__pill">Wildlands SMP</div>
                 <h1>{{ title }}</h1>
                 <p>{{ subtitle }}</p>
 
@@ -34,27 +34,29 @@
                 </div>
 
                 <div class="hero__tags">
-                    <span>Fast package delivery</span>
-                    <span>Secure Tebex checkout</span>
-                    <span>Pastel fantasy storefront</span>
+                    <span>Premium ranks</span>
+                    <span>Crate keys</span>
+                    <span>Exclusive perks</span>
                 </div>
             </div>
 
             <div class="hero__panel">
                 <img class="hero__logo" :src="brandMark" alt="Horizon logo" />
                 <div class="hero__panel-copy">
-                    <span class="hero__panel-label">Featured realm</span>
-                    <strong>Horizon: Wildlands SMP</strong>
-                    <span>{{ appConfig.serverIp }}</span>
+                    <span class="hero__panel-label">Top unlocks</span>
+                    <strong>Ranks, keys, and power boosts</strong>
+                    <span
+                        >Support Horizon while leveling up every session.</span
+                    >
                 </div>
                 <div class="hero__panel-list">
                     <div>
-                        <small>Store focus</small>
+                        <small>What you get</small>
                         <strong>Ranks, crates, cosmetics</strong>
                     </div>
                     <div>
-                        <small>Community hub</small>
-                        <strong>discord.gg/HorizonSMP</strong>
+                        <small>Why it matters</small>
+                        <strong>Funds events, upkeep, and new content</strong>
                     </div>
                 </div>
             </div>
@@ -89,7 +91,7 @@ const appConfig = useAppConfig();
     border-radius: $hero-banner-border-radius;
     overflow: hidden;
     box-shadow: var(--horizon-shadow);
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    border: 1px solid rgba(187, 140, 255, 0.16);
     margin: 0 8px;
 
     @if ($hero-gradient) {
@@ -118,9 +120,9 @@ const appConfig = useAppConfig();
 
         @include tools.media-breakpoint-up("md") {
             grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
-            align-items: end;
+            align-items: center;
             gap: 36px;
-            padding: 42px;
+            padding: 48px 42px;
         }
     }
 
@@ -176,8 +178,8 @@ const appConfig = useAppConfig();
         margin-bottom: 18px;
         padding: 10px 16px;
         border-radius: 9999px;
-        background: rgba(255, 255, 255, 0.14);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(187, 140, 255, 0.14);
+        border: 1px solid rgba(187, 140, 255, 0.2);
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -200,8 +202,8 @@ const appConfig = useAppConfig();
         span {
             padding: 9px 14px;
             border-radius: 9999px;
-            background: rgba(24, 8, 44, 0.22);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(15, 8, 24, 0.6);
+            border: 1px solid rgba(187, 140, 255, 0.12);
             font-size: 0.88rem;
         }
     }
@@ -209,12 +211,14 @@ const appConfig = useAppConfig();
     &__panel {
         display: grid;
         gap: 18px;
-        align-self: end;
+        align-self: center;
+        justify-self: end;
+        width: min(100%, 340px);
         padding: 22px;
         border-radius: 28px;
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 24px 60px rgba(17, 4, 36, 0.16);
+        background: rgba(14, 8, 22, 0.68);
+        border: 1px solid rgba(187, 140, 255, 0.14);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
     }
 
     &__logo {
@@ -255,7 +259,7 @@ const appConfig = useAppConfig();
 
     &__noise {
         inset: 0;
-        opacity: 0.08;
+        opacity: 0.06;
         background-image: linear-gradient(
                 rgba(255, 255, 255, 0.6) 1px,
                 transparent 1px
@@ -273,7 +277,7 @@ const appConfig = useAppConfig();
         border-radius: 50%;
         background: radial-gradient(
             circle,
-            rgba(255, 255, 255, 0.42),
+            rgba(187, 140, 255, 0.34),
             transparent 72%
         );
 

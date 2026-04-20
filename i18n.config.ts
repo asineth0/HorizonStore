@@ -23,9 +23,9 @@ export default defineI18nConfig(() => ({
             play: "play.horizonrp.net",
             index: {
                 hero: {
-                    title: "Support Horizon and upgrade your Wildlands experience",
+                    title: "Forge your legacy in Horizon Wildlands",
                     subtitle:
-                        "Ranks, crates, cosmetics, and premium extras delivered securely through Tebex.",
+                        "Unlock premium ranks, crate keys, and exclusive perks that power up your grind and keep the server thriving.",
                 },
             },
             buttons: {
@@ -114,9 +114,9 @@ export default defineI18nConfig(() => ({
             play: "play.horizonrp.net",
             index: {
                 hero: {
-                    title: "Unterstütze Horizon und verbessere dein Wildlands-Erlebnis",
+                    title: "Schmiede dein Vermächtnis in Horizon Wildlands",
                     subtitle:
-                        "Ränge, Kisten, Kosmetik und Premium-Extras sicher über Tebex geliefert.",
+                        "Schalte Premium-Ränge, Kistenschlüssel und exklusive Vorteile frei, die deinen Fortschritt stärken und den Server unterstützen.",
                 },
             },
             buttons: {

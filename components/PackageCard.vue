@@ -164,7 +164,7 @@ const quantity = ref<number>(1);
         position: relative;
         gap: 20px;
         width: 100%;
-        border: 1px solid rgba(120, 89, 164, 0.1);
+        border: 1px solid rgba(187, 140, 255, 0.08);
         transition:
             transform 0.2s ease,
             border-color 0.2s ease,
@@ -173,8 +173,8 @@ const quantity = ref<number>(1);
 
     &:hover &__inner {
         transform: translateY(-6px);
-        border-color: rgba(120, 89, 164, 0.22);
-        box-shadow: 0 30px 65px rgba(82, 46, 128, 0.14);
+        border-color: rgba(187, 140, 255, 0.18);
+        box-shadow: 0 30px 65px rgba(0, 0, 0, 0.34);
     }
 
     .package-actions {
@@ -209,7 +209,7 @@ const quantity = ref<number>(1);
         border-radius: 22px;
 
         img {
-            filter: drop-shadow(0 16px 28px rgba(109, 83, 168, 0.16));
+            filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
         }
     }
 

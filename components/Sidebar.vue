@@ -64,8 +64,8 @@ const sidebar = ref<HTMLElement | null>(null);
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(24px);
-    border-left: 1px solid rgba(120, 89, 164, 0.1);
-    box-shadow: -24px 0 60px rgba(82, 46, 128, 0.08);
+    border-left: 1px solid rgba(187, 140, 255, 0.12);
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.26);
 
     @include tools.media-breakpoint-up("sm") {
         width: 420px;
