@@ -81,8 +81,9 @@ if (route.query.success && isClient) {
     --horizon-panel: rgba(20, 12, 30, 0.88);
     --horizon-border: rgba(187, 140, 255, 0.14);
     --horizon-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
-    --horizon-ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --horizon-ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    --horizon-ease: cubic-bezier(0.45, 0, 0.2, 1);
+    --horizon-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --horizon-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
     --horizon-motion-fast: 180ms;
     --horizon-motion-base: 320ms;
     --horizon-motion-slow: 620ms;

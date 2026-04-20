@@ -166,10 +166,11 @@ const quantity = ref<number>(1);
         width: 100%;
         border: 1px solid rgba(187, 140, 255, 0.08);
         transition:
-            transform var(--horizon-motion-base) var(--horizon-ease),
-            border-color var(--horizon-motion-base) ease,
-            box-shadow var(--horizon-motion-base) ease,
-            background-color var(--horizon-motion-base) ease;
+            transform var(--horizon-motion-base) var(--horizon-ease-in-out),
+            border-color var(--horizon-motion-base) var(--horizon-ease-in-out),
+            box-shadow var(--horizon-motion-base) var(--horizon-ease-in-out),
+            background-color var(--horizon-motion-base)
+                var(--horizon-ease-in-out);
         will-change: transform;
 
         &::before {
@@ -185,7 +186,8 @@ const quantity = ref<number>(1);
                 transparent 38%,
                 rgba(187, 140, 255, 0.08)
             );
-            transition: opacity var(--horizon-motion-base) ease;
+            transition: opacity var(--horizon-motion-base)
+                var(--horizon-ease-in-out);
         }
     }
 
@@ -233,14 +235,15 @@ const quantity = ref<number>(1);
         border-radius: 22px;
         overflow: hidden;
         transition:
-            transform var(--horizon-motion-base) var(--horizon-ease),
-            background-color var(--horizon-motion-base) ease;
+            transform var(--horizon-motion-base) var(--horizon-ease-in-out),
+            background-color var(--horizon-motion-base)
+                var(--horizon-ease-in-out);
 
         img {
             filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
             transition:
-                transform var(--horizon-motion-slow) var(--horizon-ease-soft),
-                filter var(--horizon-motion-base) ease;
+                transform var(--horizon-motion-slow) var(--horizon-ease-in-out),
+                filter var(--horizon-motion-base) var(--horizon-ease-in-out);
         }
     }
 

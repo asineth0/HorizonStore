@@ -124,10 +124,10 @@ const clicked = (event: Event) => {
     overflow: hidden;
     position: relative;
     transition:
-        transform var(--horizon-motion-fast) var(--horizon-ease),
-        box-shadow var(--horizon-motion-fast) ease,
-        background-color var(--horizon-motion-fast) ease,
-        color var(--horizon-motion-fast) ease;
+        transform var(--horizon-motion-fast) var(--horizon-ease-in-out),
+        box-shadow var(--horizon-motion-fast) var(--horizon-ease-in-out),
+        background-color var(--horizon-motion-fast) var(--horizon-ease-in-out),
+        color var(--horizon-motion-fast) var(--horizon-ease-in-out);
 
     &__prepend,
     &__content,

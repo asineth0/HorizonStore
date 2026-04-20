@@ -222,10 +222,11 @@ const { data: categories } = await useAsyncData("categories", () => {
         width: min(calc(100% - 24px), 1520px);
         margin: 14px auto 0;
         transition:
-            transform 0.2s ease,
-            background-color 0.2s ease,
-            border-color 0.2s ease,
-            box-shadow 0.2s ease;
+            transform var(--horizon-motion-base) var(--horizon-ease-in-out),
+            background-color var(--horizon-motion-base)
+                var(--horizon-ease-in-out),
+            border-color var(--horizon-motion-base) var(--horizon-ease-in-out),
+            box-shadow var(--horizon-motion-base) var(--horizon-ease-in-out);
 
         &--sticky {
             position: fixed;

@@ -42,9 +42,9 @@ defineProps<CategoryCardProps>();
     box-shadow: var(--horizon-shadow);
     padding: 22px;
     transition:
-        transform var(--horizon-motion-base) var(--horizon-ease),
-        border-color var(--horizon-motion-base) ease,
-        box-shadow var(--horizon-motion-base) ease;
+        transform var(--horizon-motion-base) var(--horizon-ease-in-out),
+        border-color var(--horizon-motion-base) var(--horizon-ease-in-out),
+        box-shadow var(--horizon-motion-base) var(--horizon-ease-in-out);
 
     &:hover {
         transform: translateY(-3px);
@@ -56,7 +56,7 @@ defineProps<CategoryCardProps>();
         object-fit: contain;
         filter: drop-shadow(0 12px 24px rgba(109, 83, 168, 0.16));
         transition: transform var(--horizon-motion-slow)
-            var(--horizon-ease-soft);
+            var(--horizon-ease-in-out);
     }
 
     &:hover img {

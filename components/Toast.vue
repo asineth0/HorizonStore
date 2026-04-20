@@ -106,7 +106,7 @@ const { toasts } = storeToRefs(toastStore);
 .toast-slide-move,
 .toast-slide-enter-active,
 .toast-slide-leave-active {
-    transition: all 0.25s ease;
+    transition: all var(--horizon-motion-base) var(--horizon-ease-in-out);
 }
 .toast-slide-enter-from,
 .toast-slide-leave-to {

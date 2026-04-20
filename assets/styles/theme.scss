@@ -72,6 +72,7 @@
   $input-border-color: rgba(187, 140, 255, 0.18),
   $input-border-radius: 18px,
   $input-border-color-hover: #bb8cff,
+  $input-transition: border-color 180ms var(--horizon-ease-in-out),
   $cart-item-color: #f2eaff,
   $cart-item-bg: rgba(24, 15, 37, 0.92),
   $cart-item-image-bg: linear-gradient(180deg, #25173a 0%, #160d22 100%),

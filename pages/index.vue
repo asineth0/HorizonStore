@@ -106,8 +106,8 @@ const { data: categories } = await useAsyncData("categories", () => {
 
 .category {
     margin-bottom: 48px;
-    animation: store-reveal var(--horizon-motion-slow) var(--horizon-ease-soft)
-        both;
+    animation: store-reveal var(--horizon-motion-slow)
+        var(--horizon-ease-in-out) both;
 
     :deep(.header-card) {
         padding: 16px 24px;
@@ -177,9 +177,10 @@ const { data: categories } = await useAsyncData("categories", () => {
         color: #efe3ff;
         text-decoration: none;
         transition:
-            transform var(--horizon-motion-base) var(--horizon-ease),
-            background-color var(--horizon-motion-base) ease,
-            border-color var(--horizon-motion-base) ease;
+            transform var(--horizon-motion-base) var(--horizon-ease-in-out),
+            background-color var(--horizon-motion-base)
+                var(--horizon-ease-in-out),
+            border-color var(--horizon-motion-base) var(--horizon-ease-in-out);
 
         img {
             border-radius: 14px;

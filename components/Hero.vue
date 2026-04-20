@@ -68,7 +68,7 @@ const appConfig = useAppConfig();
     box-shadow: var(--horizon-shadow);
     border: 1px solid rgba(187, 140, 255, 0.16);
     margin: 34px auto 0;
-    animation: hero-arrive var(--horizon-motion-slow) var(--horizon-ease-soft)
+    animation: hero-arrive var(--horizon-motion-slow) var(--horizon-ease-in-out)
         both;
 
     @if ($hero-gradient) {
@@ -223,7 +223,7 @@ const appConfig = useAppConfig();
             height: 16rem;
             top: -2rem;
             right: 8%;
-            animation: hero-float 12s ease-in-out infinite;
+            animation: hero-float 12s var(--horizon-ease-in-out) infinite;
         }
 
         &--two {
@@ -231,7 +231,8 @@ const appConfig = useAppConfig();
             height: 10rem;
             bottom: -2rem;
             left: 42%;
-            animation: hero-float 15s ease-in-out infinite reverse;
+            animation: hero-float 15s var(--horizon-ease-in-out) infinite
+                reverse;
         }
     }
 }
