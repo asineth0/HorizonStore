@@ -84,7 +84,7 @@ const appConfig = useAppConfig();
 
 .hero {
     position: relative;
-    width: 100%;
+    width: min(calc(100% - 48px), 1320px);
     height: $hero-banner-height;
     display: grid;
     align-items: stretch;
@@ -92,7 +92,7 @@ const appConfig = useAppConfig();
     overflow: hidden;
     box-shadow: var(--horizon-shadow);
     border: 1px solid rgba(187, 140, 255, 0.16);
-    margin: 0 8px;
+    margin: 0 auto;
 
     @if ($hero-gradient) {
         &::after {
@@ -106,6 +106,7 @@ const appConfig = useAppConfig();
             bottom: 0;
             background: $hero-gradient;
             z-index: 1;
+            opacity: 0.64;
         }
     }
 
@@ -119,10 +120,10 @@ const appConfig = useAppConfig();
         color: $hero-banner-color;
 
         @include tools.media-breakpoint-up("md") {
-            grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.68fr);
+            grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.62fr);
             align-items: center;
-            gap: 36px;
-            padding: 56px 46px 44px;
+            gap: 42px;
+            padding: 54px 50px 42px;
         }
     }
 
@@ -131,18 +132,20 @@ const appConfig = useAppConfig();
         flex-direction: column;
         justify-content: center;
         min-width: 0;
+        max-width: 48rem;
 
         h1 {
             color: inherit;
-            max-width: 10.5ch;
+            max-width: 720px;
             margin-bottom: 18px;
-            line-height: 0.98;
-            font-size: clamp(2.95rem, 5.4vw, 5.4rem);
+            line-height: 0.96;
+            font-size: clamp(2.8rem, 4vw, 4.45rem);
+            letter-spacing: -0.04em;
             text-wrap: balance;
         }
 
         p {
-            max-width: 34rem;
+            max-width: 38rem;
             margin-bottom: 0;
             font-size: 1.02rem;
             line-height: 1.7;
@@ -165,7 +168,9 @@ const appConfig = useAppConfig();
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: scale(1.05);
+        object-position: center 55%;
+        transform: scale(1.015);
+        filter: saturate(1.08) contrast(1.08) brightness(0.86);
     }
 
     &__pill,
@@ -260,7 +265,7 @@ const appConfig = useAppConfig();
 
     &__noise {
         inset: 0;
-        opacity: 0.06;
+        opacity: 0.03;
         background-image: linear-gradient(
                 rgba(255, 255, 255, 0.6) 1px,
                 transparent 1px
@@ -283,18 +288,18 @@ const appConfig = useAppConfig();
         );
 
         &--one {
-            width: 18rem;
-            height: 18rem;
-            top: -5rem;
-            right: 10%;
+            width: 16rem;
+            height: 16rem;
+            top: -2rem;
+            right: 8%;
             animation: hero-float 12s ease-in-out infinite;
         }
 
         &--two {
-            width: 14rem;
-            height: 14rem;
-            bottom: -4rem;
-            left: 36%;
+            width: 10rem;
+            height: 10rem;
+            bottom: -2rem;
+            left: 42%;
             animation: hero-float 15s ease-in-out infinite reverse;
         }
     }
@@ -308,6 +313,12 @@ const appConfig = useAppConfig();
 
     50% {
         transform: translate3d(0, -14px, 0);
+    }
+}
+
+@media (max-width: 959px) {
+    .hero {
+        width: min(calc(100% - 24px), 1320px);
     }
 }
 </style>
