@@ -106,6 +106,8 @@ const { data: categories } = await useAsyncData("categories", () => {
 
 .category {
     margin-bottom: 48px;
+    animation: store-reveal var(--horizon-motion-slow) var(--horizon-ease-soft)
+        both;
 
     :deep(.header-card) {
         padding: 16px 24px;
@@ -175,9 +177,9 @@ const { data: categories } = await useAsyncData("categories", () => {
         color: #efe3ff;
         text-decoration: none;
         transition:
-            transform 0.2s ease,
-            background-color 0.2s ease,
-            border-color 0.2s ease;
+            transform var(--horizon-motion-base) var(--horizon-ease),
+            background-color var(--horizon-motion-base) ease,
+            border-color var(--horizon-motion-base) ease;
 
         img {
             border-radius: 14px;
@@ -185,10 +187,22 @@ const { data: categories } = await useAsyncData("categories", () => {
         }
 
         &:hover {
-            transform: translateY(-2px);
+            transform: translateX(3px);
             background: rgba(187, 140, 255, 0.08);
             border-color: rgba(187, 140, 255, 0.2);
         }
+    }
+}
+
+@keyframes store-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 </style>

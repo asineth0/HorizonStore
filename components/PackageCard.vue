@@ -166,15 +166,39 @@ const quantity = ref<number>(1);
         width: 100%;
         border: 1px solid rgba(187, 140, 255, 0.08);
         transition:
-            transform 0.2s ease,
-            border-color 0.2s ease,
-            box-shadow 0.2s ease;
+            transform var(--horizon-motion-base) var(--horizon-ease),
+            border-color var(--horizon-motion-base) ease,
+            box-shadow var(--horizon-motion-base) ease,
+            background-color var(--horizon-motion-base) ease;
+        will-change: transform;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(187, 140, 255, 0.16),
+                transparent 38%,
+                rgba(187, 140, 255, 0.08)
+            );
+            transition: opacity var(--horizon-motion-base) ease;
+        }
     }
 
     &:hover &__inner {
-        transform: translateY(-6px);
-        border-color: rgba(187, 140, 255, 0.18);
-        box-shadow: 0 30px 65px rgba(0, 0, 0, 0.34);
+        transform: translateY(-3px);
+        border-color: rgba(187, 140, 255, 0.24);
+        box-shadow:
+            0 22px 52px rgba(0, 0, 0, 0.3),
+            0 0 0 1px rgba(187, 140, 255, 0.04);
+    }
+
+    &:hover &__inner::before {
+        opacity: 1;
     }
 
     .package-actions {
@@ -207,9 +231,25 @@ const quantity = ref<number>(1);
         flex-grow: 1;
         background: $package-card-image-bg;
         border-radius: 22px;
+        overflow: hidden;
+        transition:
+            transform var(--horizon-motion-base) var(--horizon-ease),
+            background-color var(--horizon-motion-base) ease;
 
         img {
             filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.32));
+            transition:
+                transform var(--horizon-motion-slow) var(--horizon-ease-soft),
+                filter var(--horizon-motion-base) ease;
+        }
+    }
+
+    &:hover &__image {
+        transform: translateY(-1px);
+
+        img {
+            transform: scale(1.035);
+            filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.38));
         }
     }
 

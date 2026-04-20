@@ -122,6 +122,12 @@ const clicked = (event: Event) => {
     align-items: center;
     text-decoration: none;
     overflow: hidden;
+    position: relative;
+    transition:
+        transform var(--horizon-motion-fast) var(--horizon-ease),
+        box-shadow var(--horizon-motion-fast) ease,
+        background-color var(--horizon-motion-fast) ease,
+        color var(--horizon-motion-fast) ease;
 
     &__prepend,
     &__content,
@@ -147,8 +153,12 @@ const clicked = (event: Event) => {
     }
 
     &:hover {
-        box-shadow: none;
+        transform: translateY(-1px);
         text-decoration: none;
+    }
+
+    &:active {
+        transform: translateY(0);
     }
 
     &--primary {

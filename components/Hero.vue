@@ -68,6 +68,8 @@ const appConfig = useAppConfig();
     box-shadow: var(--horizon-shadow);
     border: 1px solid rgba(187, 140, 255, 0.16);
     margin: 34px auto 0;
+    animation: hero-arrive var(--horizon-motion-slow) var(--horizon-ease-soft)
+        both;
 
     @if ($hero-gradient) {
         &::after {
@@ -242,6 +244,18 @@ const appConfig = useAppConfig();
 
     50% {
         transform: translate3d(0, -14px, 0);
+    }
+}
+
+@keyframes hero-arrive {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.995);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 

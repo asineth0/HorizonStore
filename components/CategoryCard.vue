@@ -42,12 +42,12 @@ defineProps<CategoryCardProps>();
     box-shadow: var(--horizon-shadow);
     padding: 22px;
     transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease;
+        transform var(--horizon-motion-base) var(--horizon-ease),
+        border-color var(--horizon-motion-base) ease,
+        box-shadow var(--horizon-motion-base) ease;
 
     &:hover {
-        transform: translateY(-6px);
+        transform: translateY(-3px);
         border-color: rgba(120, 89, 164, 0.28);
         box-shadow: 0 28px 60px rgba(82, 46, 128, 0.16);
     }
@@ -55,6 +55,12 @@ defineProps<CategoryCardProps>();
     img {
         object-fit: contain;
         filter: drop-shadow(0 12px 24px rgba(109, 83, 168, 0.16));
+        transition: transform var(--horizon-motion-slow)
+            var(--horizon-ease-soft);
+    }
+
+    &:hover img {
+        transform: scale(1.04);
     }
 
     &__header {
