@@ -66,7 +66,7 @@ const appConfig = useAppConfig();
     border-radius: $hero-banner-border-radius;
     overflow: hidden;
     box-shadow: var(--horizon-shadow);
-    border: 1px solid rgba(187, 140, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     margin: 34px auto 0;
     animation: hero-arrive var(--horizon-motion-slow) var(--horizon-ease-in-out)
         both;
@@ -158,9 +158,9 @@ const appConfig = useAppConfig();
         width: fit-content;
         margin-bottom: 18px;
         padding: 10px 16px;
-        border-radius: 9999px;
-        background: rgba(187, 140, 255, 0.14);
-        border: 1px solid rgba(187, 140, 255, 0.2);
+        border-radius: 14px;
+        background: rgba(182, 140, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -180,9 +180,9 @@ const appConfig = useAppConfig();
 
         span {
             padding: 9px 14px;
-            border-radius: 9999px;
-            background: rgba(15, 8, 24, 0.6);
-            border: 1px solid rgba(187, 140, 255, 0.12);
+            border-radius: 14px;
+            background: rgba(18, 20, 24, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.07);
             font-size: 0.88rem;
         }
     }
@@ -214,7 +214,7 @@ const appConfig = useAppConfig();
         border-radius: 50%;
         background: radial-gradient(
             circle,
-            rgba(187, 140, 255, 0.34),
+            rgba(182, 140, 255, 0.18),
             transparent 72%
         );
 

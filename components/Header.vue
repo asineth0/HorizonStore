@@ -245,10 +245,11 @@ const { data: categories } = await useAsyncData("categories", () => {
     &__shell {
         position: relative;
         overflow: hidden;
-        border-radius: 28px;
-        border: 1px solid rgba(187, 140, 255, 0.14);
-        background: rgba(10, 6, 16, 0.88);
+        border-radius: 20px;
+        border: 1px solid var(--horizon-border);
+        background: rgba(14, 15, 18, 0.72);
         box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(22px);
         isolation: isolate;
     }
 
@@ -258,14 +259,14 @@ const { data: categories } = await useAsyncData("categories", () => {
         opacity: 0.96;
         background: radial-gradient(
                 circle at 24% 0%,
-                rgba(187, 140, 255, 0.2),
+                rgba(182, 140, 255, 0.12),
                 transparent 34%
             ),
             linear-gradient(
                 90deg,
-                rgba(13, 7, 22, 0.96) 0%,
-                rgba(19, 10, 30, 0.92) 52%,
-                rgba(39, 20, 62, 0.88) 100%
+                rgba(12, 13, 16, 0.94) 0%,
+                rgba(18, 20, 24, 0.9) 52%,
+                rgba(28, 30, 36, 0.86) 100%
             );
     }
 
@@ -289,8 +290,8 @@ const { data: categories } = await useAsyncData("categories", () => {
         gap: 14px;
         padding: 12px 16px;
         border: 0;
-        background: rgba(15, 10, 24, 0.8);
-        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
         backdrop-filter: blur(14px);
         cursor: pointer;
@@ -300,10 +301,10 @@ const { data: categories } = await useAsyncData("categories", () => {
         width: 48px;
         height: 48px;
         object-fit: cover;
-        border-radius: 16px;
+        border-radius: 12px;
 
         &-icon img {
-            border-radius: 12px;
+            border-radius: 10px;
         }
     }
 

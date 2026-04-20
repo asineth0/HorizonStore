@@ -88,6 +88,7 @@ const closeModal = () => {
     width: 100%;
     background-color: $modal-bg;
     border-radius: $modal-border-radius;
+    backdrop-filter: blur(22px);
     overflow: hidden;
     position: relative;
     margin-inline: 1rem;

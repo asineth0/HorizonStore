@@ -73,7 +73,7 @@ const appConfig = useAppConfig();
     width: 100%;
     background-color: $footer-bg;
     backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(187, 140, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 
     &__store {
         display: flex;
@@ -101,7 +101,7 @@ const appConfig = useAppConfig();
             width: 56px;
             height: 56px;
             object-fit: cover;
-            border-radius: 18px;
+            border-radius: 12px;
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
         }
     }
@@ -113,7 +113,7 @@ const appConfig = useAppConfig();
         background-color: $footer-tebex-bg;
         color: $footer-tebex-color;
         font-size: $footer-tebex-font-size;
-        border-top: 1px solid rgba(187, 140, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
 
         &-inner {
             display: flex;

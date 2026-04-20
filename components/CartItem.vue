@@ -65,6 +65,7 @@ const emit = defineEmits<{
     border-bottom: $border-bottom;
     background-color: $cart-item-bg;
     border-radius: $cart-item-border-radius;
+    backdrop-filter: blur(16px);
     @include tools.text-contrast($cart-item-bg);
 
     &__name {

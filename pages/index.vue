@@ -112,7 +112,8 @@ const { data: categories } = await useAsyncData("categories", () => {
     :deep(.header-card) {
         padding: 16px 24px;
         box-shadow: var(--horizon-shadow);
-        border: 1px solid var(--horizon-border);
+        border: 0;
+        backdrop-filter: blur(18px);
     }
 
     &__heading {
@@ -120,7 +121,7 @@ const { data: categories } = await useAsyncData("categories", () => {
         gap: 4px;
 
         small {
-            color: #a88ad0;
+            color: #aeb4c0;
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
@@ -151,14 +152,14 @@ const { data: categories } = await useAsyncData("categories", () => {
         display: grid;
         gap: 12px;
         padding: 20px;
-        border-radius: 28px;
+        border-radius: 20px;
         background: var(--horizon-panel);
-        border: 1px solid var(--horizon-border);
         box-shadow: var(--horizon-shadow);
+        backdrop-filter: blur(18px);
     }
 
     &__sidebar-label {
-        color: #b293de;
+        color: #c7a7ff;
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -171,26 +172,23 @@ const { data: categories } = await useAsyncData("categories", () => {
         align-items: center;
         gap: 14px;
         padding: 10px 12px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(187, 140, 255, 0.08);
-        color: #efe3ff;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #f4f5f8;
         text-decoration: none;
         transition:
             transform var(--horizon-motion-base) var(--horizon-ease-in-out),
             background-color var(--horizon-motion-base)
-                var(--horizon-ease-in-out),
-            border-color var(--horizon-motion-base) var(--horizon-ease-in-out);
+                var(--horizon-ease-in-out);
 
         img {
-            border-radius: 14px;
+            border-radius: 10px;
             object-fit: cover;
         }
 
         &:hover {
             transform: translateX(3px);
-            background: rgba(187, 140, 255, 0.08);
-            border-color: rgba(187, 140, 255, 0.2);
+            background: rgba(182, 140, 255, 0.1);
         }
     }
 }

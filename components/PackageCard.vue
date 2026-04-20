@@ -164,7 +164,8 @@ const quantity = ref<number>(1);
         position: relative;
         gap: 20px;
         width: 100%;
-        border: 1px solid rgba(187, 140, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(18px);
         transition:
             transform var(--horizon-motion-base) var(--horizon-ease-in-out),
             border-color var(--horizon-motion-base) var(--horizon-ease-in-out),
@@ -182,9 +183,9 @@ const quantity = ref<number>(1);
             opacity: 0;
             background: linear-gradient(
                 135deg,
-                rgba(187, 140, 255, 0.16),
+                rgba(182, 140, 255, 0.1),
                 transparent 38%,
-                rgba(187, 140, 255, 0.08)
+                rgba(255, 255, 255, 0.04)
             );
             transition: opacity var(--horizon-motion-base)
                 var(--horizon-ease-in-out);
@@ -193,10 +194,10 @@ const quantity = ref<number>(1);
 
     &:hover &__inner {
         transform: translateY(-3px);
-        border-color: rgba(187, 140, 255, 0.24);
+        border-color: rgba(182, 140, 255, 0.18);
         box-shadow:
             0 22px 52px rgba(0, 0, 0, 0.3),
-            0 0 0 1px rgba(187, 140, 255, 0.04);
+            0 0 0 1px rgba(255, 255, 255, 0.03);
     }
 
     &:hover &__inner::before {
@@ -232,7 +233,7 @@ const quantity = ref<number>(1);
         padding: 32px;
         flex-grow: 1;
         background: $package-card-image-bg;
-        border-radius: 22px;
+        border-radius: 16px;
         overflow: hidden;
         transition:
             transform var(--horizon-motion-base) var(--horizon-ease-in-out),

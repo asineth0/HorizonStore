@@ -83,6 +83,5 @@ const isActive = computed({
 .category__button {
     justify-content: flex-start;
     font-size: 20px;
-    border: 1px solid rgba(187, 140, 255, 0.1);
 }
 </style>

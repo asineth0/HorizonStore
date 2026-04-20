@@ -40,6 +40,7 @@ defineProps<CategoryCardProps>();
     min-width: $category-card-min-width;
     background: $category-card-bg;
     box-shadow: var(--horizon-shadow);
+    backdrop-filter: blur(18px);
     padding: 22px;
     transition:
         transform var(--horizon-motion-base) var(--horizon-ease-in-out),
@@ -48,13 +49,12 @@ defineProps<CategoryCardProps>();
 
     &:hover {
         transform: translateY(-3px);
-        border-color: rgba(120, 89, 164, 0.28);
-        box-shadow: 0 28px 60px rgba(82, 46, 128, 0.16);
+        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
     }
 
     img {
         object-fit: contain;
-        filter: drop-shadow(0 12px 24px rgba(109, 83, 168, 0.16));
+        filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.22));
         transition: transform var(--horizon-motion-slow)
             var(--horizon-ease-in-out);
     }

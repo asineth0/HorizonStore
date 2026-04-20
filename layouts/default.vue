@@ -1,7 +1,6 @@
 <template>
     <div class="layout layout--default">
-        <div class="layout__glow layout__glow--one"></div>
-        <div class="layout__glow layout__glow--two"></div>
+        <div class="layout__sky"></div>
         <Header />
 
         <MenuSidebar />
@@ -23,26 +22,29 @@
     position: relative;
     overflow: clip;
 
-    &__glow {
+    &__sky {
         position: fixed;
-        pointer-events: none;
+        inset: 0 0 auto;
         z-index: 0;
-        width: 32rem;
-        height: 32rem;
-        border-radius: 50%;
-        filter: blur(12px);
-        background: var(--horizon-glow);
-        opacity: 0.9;
-
-        &--one {
-            top: -8rem;
-            left: -6rem;
-        }
-
-        &--two {
-            top: 18rem;
-            right: -8rem;
-        }
+        height: min(96vh, 980px);
+        pointer-events: none;
+        background-image: linear-gradient(
+                180deg,
+                rgba(8, 9, 12, 0.12) 0%,
+                rgba(10, 11, 15, 0.36) 52%,
+                #0c0d10 100%
+            ),
+            url("~/assets/branding/night-sky.png");
+        background-position: center top;
+        background-size: cover;
+        opacity: 0.66;
+        mask-image: linear-gradient(
+            180deg,
+            #000 0%,
+            rgba(0, 0, 0, 0.92) 52%,
+            transparent 100%
+        );
+        transform: translateZ(0);
     }
 
     &--default {

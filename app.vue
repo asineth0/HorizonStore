@@ -73,14 +73,9 @@ if (route.query.success && isClient) {
 
 <style lang="scss">
 :root {
-    --horizon-glow: radial-gradient(
-        circle at top,
-        rgba(124, 86, 196, 0.36),
-        rgba(124, 86, 196, 0)
-    );
-    --horizon-panel: rgba(20, 12, 30, 0.88);
-    --horizon-border: rgba(187, 140, 255, 0.14);
-    --horizon-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+    --horizon-panel: rgba(22, 24, 29, 0.72);
+    --horizon-border: rgba(255, 255, 255, 0.07);
+    --horizon-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
     --horizon-ease: cubic-bezier(0.45, 0, 0.2, 1);
     --horizon-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
     --horizon-ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,22 +85,12 @@ if (route.query.success && isClient) {
 }
 
 html {
-    background: #090510;
+    background: #0b0c0f;
     scroll-behavior: smooth;
 }
 
 body {
-    background: radial-gradient(
-            circle at top left,
-            rgba(113, 74, 186, 0.26),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at top right,
-            rgba(75, 48, 122, 0.24),
-            transparent 28%
-        ),
-        linear-gradient(180deg, #0d0714 0%, #090510 52%, #050309 100%);
-    color: #c3aedf;
+    background: linear-gradient(180deg, #101116 0%, #0c0d10 48%, #08090b 100%);
+    color: #c9cbd1;
 }
 </style>
